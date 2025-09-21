@@ -1,0 +1,79 @@
+
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Smart Catalog — Upload Studio (MVP)</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="h1">Smart Catalog — Upload Studio</div>
+      <div class="badge">MVP · Quality Score Gate</div>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h3>Listing Details</h3>
+        <div class="row">
+          <div>
+            <label>Category</label>
+            <select id="category"></select>
+          </div>
+          <div>
+            <label>Known Hashes (optional)</label>
+            <input id="known" placeholder="phash1,phash2">
+          </div>
+        </div>
+
+        <div class="row" style="margin-top:10px">
+          <div>
+            <label>Required Attributes</label>
+            <div id="attrs" class="kv"></div>
+            <div style="margin:10px 0">
+              <div class="progress"><i id="attrBar"></i></div>
+              <div class="small" id="attrPct">0% complete</div>
+            </div>
+          </div>
+          <div>
+            <label>Images</label>
+            <div id="drop" class="dropzone">Drop images here or click to select<br><span class="small">JPEG/PNG</span></div>
+            <input id="images" type="file" accept="image/*" multiple style="display:none"/>
+            <div id="preview" class="pills"></div>
+          </div>
+        </div>
+
+        <div style="margin-top:12px;display:flex;gap:10px">
+          <button id="run" class="btn">Check Quality</button>
+          <span class="small">Tip: Fill attributes & add 3–5 images for best score.</span>
+        </div>
+      </div>
+
+      <div class="card">
+        <h3>Quality Score</h3>
+        <div class="score-wrap">
+          <div class="ring" id="ring"><span id="score">0</span></div>
+          <div>
+            <div id="gate" class="small">Awaiting check…</div>
+            <div style="margin-top:10px">
+              <div class="small">Gate Threshold: <b id="minq"></b></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:14px">
+      <h3>Issues & Fix‑tips</h3>
+      <div id="issues" class="issues small">Run a check to see suggestions.</div>
+    </div>
+  </div>
+
+  <div id="toast" class="toast">Scoring complete.</div>
+
+  <script>window.MIN_QUALITY = {{ min_quality }};</script>
+  <script src="/static/script.js"></script>
+</body>
+</html>

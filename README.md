@@ -29,3 +29,4 @@ uvicorn app.main:app --reload --port 8000
 - **Watermark heuristic**: detects dense edge text overlays in corners (very rough for MVP).
 - **Duplicate**: `imagehash.phash`. The server can also accept a list of `known_hashes` from the client.
 - **Quality Score**: starts at 100, subtracts per-issue with caps.
+
